@@ -1,26 +1,53 @@
-import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Camera } from "lucide-react";
+import { Camera } from "lucide-react";
+import Image1 from "@/assets/1.jpeg";
+import Image2 from "@/assets/2.jpeg";
+import Image3 from "@/assets/3.jpeg";
+import Image4 from "@/assets/4.jpeg";
+import Image5 from "@/assets/5.jpeg";
+import Image6 from "@/assets/6.jpeg";
 
 const GallerySection = () => {
-  const [currentCategory, setCurrentCategory] = useState("campus");
-
-  const categories = [
-    { id: "campus", name: "Campus Life", count: 12 },
-    { id: "academics", name: "Academics", count: 8 },
-    { id: "sports", name: "Sports & Activities", count: 15 },
-    { id: "events", name: "Events", count: 10 },
+  // Gallery images with imported assets
+  const galleryImages = [
+    {
+      src: Image1,
+      id: 1,
+      title: "Campus View 1",
+      description: "Beautiful campus architecture",
+    },
+    {
+      src: Image2,
+      id: 2,
+      title: "Academic Building",
+      description: "Modern learning facilities",
+    },
+    {
+      src: Image3,
+      id: 3,
+      title: "Sports Activity",
+      description: "Students in action",
+    },
+    {
+      src: Image4,
+      id: 4,
+      title: "School Event",
+      description: "Special celebration moment",
+    },
+    {
+      src: Image5,
+      id: 5,
+      title: "Campus View 2",
+      description: "School grounds and facilities",
+    },
+    {
+      src: Image6,
+      id: 6,
+      title: "Classroom",
+      description: "Interactive learning environment",
+    },
   ];
-
-  // Placeholder for gallery images - in a real app these would be actual images
-  const galleryImages = Array.from({ length: 8 }, (_, i) => ({
-    id: i + 1,
-    title: `Gallery Image ${i + 1}`,
-    category: currentCategory,
-    description:
-      'Beautiful moments captured at Al Imran Group of Institutions "JJ High School"',
-  }));
 
   return (
     <section id="gallery" className="section-padding bg-gradient-subtle">
@@ -39,27 +66,6 @@ const GallerySection = () => {
           </p>
         </div>
 
-        {/* Category Filters */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <Button
-              key={category.id}
-              variant={currentCategory === category.id ? "default" : "outline"}
-              onClick={() => setCurrentCategory(category.id)}
-              className={`transition-all duration-300 ${
-                currentCategory === category.id
-                  ? "bg-gradient-primary text-primary-foreground shadow-medium"
-                  : "hover:bg-primary/10 hover:text-primary"
-              }`}
-            >
-              {category.name}
-              <span className="ml-2 text-xs bg-background/20 px-2 py-1 rounded-full">
-                {category.count}
-              </span>
-            </Button>
-          ))}
-        </div>
-
         {/* Gallery Grid */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
           {galleryImages.map((image, index) => (
@@ -69,8 +75,28 @@ const GallerySection = () => {
             >
               <CardContent className="p-0">
                 <div className="relative aspect-square bg-gradient-primary/20 overflow-hidden">
-                  {/* Placeholder for image */}
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20">
+                  {/* Image or Placeholder */}
+                  {image.src ? (
+                    <img
+                      src={image.src}
+                      alt={image.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      onError={(e) => {
+                        // Show placeholder if image fails to load
+                        e.currentTarget.style.display = "none";
+                        const placeholder = e.currentTarget
+                          .nextElementSibling as HTMLElement;
+                        if (placeholder) placeholder.style.display = "flex";
+                      }}
+                    />
+                  ) : null}
+
+                  {/* Fallback placeholder */}
+                  <div
+                    className={`w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20 ${
+                      image.src ? "hidden" : "flex"
+                    }`}
+                  >
                     <Camera className="h-12 w-12 text-primary/40" />
                   </div>
 

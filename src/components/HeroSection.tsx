@@ -29,9 +29,9 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Where education meets excellence. Discover a world-class learning
-            environment designed to unlock your child's potential and prepare
-            them for tomorrow's challenges.
+            Where education meets excellence. Discover a learning environment
+            rooted in Islamic values, designed to unlock your child’s potential
+            and prepare them for tomorrow’s challenges.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
@@ -52,11 +52,11 @@ const HeroSection = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-primary-foreground">
             <div className="animate-float">
-              <div className="text-3xl md:text-4xl font-bold">1000+</div>
+              <div className="text-3xl md:text-4xl font-bold">3000+</div>
               <div className="text-primary-foreground/80">Students</div>
             </div>
             <div className="animate-float" style={{ animationDelay: "0.5s" }}>
-              <div className="text-3xl md:text-4xl font-bold">50+</div>
+              <div className="text-3xl md:text-4xl font-bold">93+</div>
               <div className="text-primary-foreground/80">Teachers</div>
             </div>
             <div className="animate-float" style={{ animationDelay: "1s" }}>
@@ -64,7 +64,7 @@ const HeroSection = () => {
               <div className="text-primary-foreground/80">Success Rate</div>
             </div>
             <div className="animate-float" style={{ animationDelay: "1.5s" }}>
-              <div className="text-3xl md:text-4xl font-bold">25+</div>
+              <div className="text-3xl md:text-4xl font-bold">15+</div>
               <div className="text-primary-foreground/80">Years</div>
             </div>
           </div>

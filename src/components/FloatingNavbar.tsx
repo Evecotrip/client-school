@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import LogoImage from "@/assets/left-header-logo.jpg"; // Assuming you have a logo image
 
 const FloatingNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,13 +18,12 @@ const FloatingNavbar = () => {
 
   const navItems = [
     "Home",
-    "Know Us",
+    "About Us",
     "Academics",
     "Admission",
     "Gallery",
-    "Reach Us",
-    "Blogs",
     "Careers",
+    "Reach Us",
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -48,11 +48,11 @@ const FloatingNavbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">
-                E
-              </span>
-            </div>
+            <img
+              src={LogoImage}
+              alt="JJ High School Logo"
+              className="w-10 h-10 rounded-s"
+            />
             <span className="font-heading font-bold text-xl text-foreground">
               JJ High School
             </span>

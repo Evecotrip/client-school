@@ -7,6 +7,7 @@ import GallerySection from "@/components/GallerySection";
 import BlogsSection from "@/components/BlogsSection";
 import CareersSection from "@/components/CareersSection";
 import ContactSection from "@/components/ContactSection";
+import HeaderLine from "@/components/HeaderLine";
 
 const Index = () => {
   return (
