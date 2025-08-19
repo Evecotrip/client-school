@@ -1,38 +1,43 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { FileText, Calendar, Users, CheckCircle } from 'lucide-react';
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { FileText, Calendar, Users, CheckCircle } from "lucide-react";
+import AdmissionForm from "@/components/AdmissionForm";
 
 const AdmissionSection = () => {
   const steps = [
     {
       icon: FileText,
-      title: 'Application Form',
-      description: 'Complete our online application with required documents and personal information.'
+      title: "Application Form",
+      description:
+        "Complete our online application with required documents and personal information.",
     },
     {
       icon: Calendar,
-      title: 'Entrance Assessment',
-      description: 'Schedule and attend our comprehensive entrance evaluation and interview.'
+      title: "Entrance Assessment",
+      description:
+        "Schedule and attend our comprehensive entrance evaluation and interview.",
     },
     {
       icon: Users,
-      title: 'Family Interview',
-      description: 'Meet with our admission team to discuss your educational goals and expectations.'
+      title: "Family Interview",
+      description:
+        "Meet with our admission team to discuss your educational goals and expectations.",
     },
     {
       icon: CheckCircle,
-      title: 'Enrollment',
-      description: 'Receive your acceptance letter and complete the enrollment process.'
-    }
+      title: "Enrollment",
+      description:
+        "Receive your acceptance letter and complete the enrollment process.",
+    },
   ];
 
   const requirements = [
-    'Completed application form',
-    'Birth certificate',
-    'Previous academic records',
-    'Health and immunization records',
-    'Two passport-size photographs',
-    'Application fee payment'
+    "Completed application form",
+    "Birth certificate",
+    "Previous academic records",
+    "Health and immunization records",
+    "Two passport-size photographs",
+    "Application fee payment",
   ];
 
   return (
@@ -40,11 +45,15 @@ const AdmissionSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-            Start Your <span className="bg-gradient-primary bg-clip-text text-transparent">Journey</span>
+            Start Your{" "}
+            <span className="bg-gradient-primary bg-clip-text text-transparent">
+              Journey
+            </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Take the first step towards excellence. Our admission process is designed to understand 
-            your child's unique potential and ensure the perfect fit for our educational community.
+            Take the first step towards excellence. Our admission process is
+            designed to understand your child's unique potential and ensure the
+            perfect fit for our educational community.
           </p>
         </div>
 
@@ -61,14 +70,12 @@ const AdmissionSection = () => {
                     {index + 1}
                   </div>
                 </div>
-                
+
                 <h3 className="text-xl font-heading font-bold text-foreground mb-4">
                   {step.title}
                 </h3>
-                
-                <p className="text-muted-foreground">
-                  {step.description}
-                </p>
+
+                <p className="text-muted-foreground">{step.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -80,7 +87,7 @@ const AdmissionSection = () => {
             <h3 className="text-3xl font-heading font-bold text-foreground mb-8">
               Admission Requirements
             </h3>
-            
+
             <div className="space-y-4 mb-8">
               {requirements.map((requirement, index) => (
                 <div key={index} className="flex items-center space-x-3">
@@ -92,9 +99,9 @@ const AdmissionSection = () => {
               ))}
             </div>
 
-            <Button className="btn-hero">
-              Download Application Form
-            </Button>
+            <AdmissionForm>
+              <Button className="btn-hero">Apply for Admission</Button>
+            </AdmissionForm>
           </div>
 
           {/* Important Dates */}
@@ -102,38 +109,54 @@ const AdmissionSection = () => {
             <h3 className="text-3xl font-heading font-bold text-foreground mb-8">
               Important Dates
             </h3>
-            
+
             <div className="space-y-6">
               <div className="bg-card border border-border rounded-xl p-6">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="font-semibold text-foreground">Application Opens</span>
+                  <span className="font-semibold text-foreground">
+                    Application Opens
+                  </span>
                   <span className="text-primary font-bold">January 15</span>
                 </div>
-                <p className="text-sm text-muted-foreground">Online applications become available</p>
+                <p className="text-sm text-muted-foreground">
+                  Online applications become available
+                </p>
               </div>
 
               <div className="bg-card border border-border rounded-xl p-6">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="font-semibold text-foreground">Application Deadline</span>
+                  <span className="font-semibold text-foreground">
+                    Application Deadline
+                  </span>
                   <span className="text-accent font-bold">March 30</span>
                 </div>
-                <p className="text-sm text-muted-foreground">Last date to submit complete applications</p>
+                <p className="text-sm text-muted-foreground">
+                  Last date to submit complete applications
+                </p>
               </div>
 
               <div className="bg-card border border-border rounded-xl p-6">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="font-semibold text-foreground">Entrance Assessment</span>
+                  <span className="font-semibold text-foreground">
+                    Entrance Assessment
+                  </span>
                   <span className="text-secondary font-bold">April 15-30</span>
                 </div>
-                <p className="text-sm text-muted-foreground">Assessment and interview period</p>
+                <p className="text-sm text-muted-foreground">
+                  Assessment and interview period
+                </p>
               </div>
 
               <div className="bg-card border border-border rounded-xl p-6">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="font-semibold text-foreground">Results Announcement</span>
+                  <span className="font-semibold text-foreground">
+                    Results Announcement
+                  </span>
                   <span className="text-primary font-bold">May 15</span>
                 </div>
-                <p className="text-sm text-muted-foreground">Admission results and enrollment information</p>
+                <p className="text-sm text-muted-foreground">
+                  Admission results and enrollment information
+                </p>
               </div>
             </div>
           </div>

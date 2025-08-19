@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/school-hero.jpg";
+import AdmissionForm from "@/components/AdmissionForm";
 
 const HeroSection = () => {
   return (
@@ -35,10 +36,12 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Button className="btn-hero group">
-              Explore Programs
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <AdmissionForm>
+              <Button className="btn-hero group">
+                Apply for Admission
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </AdmissionForm>
 
             <Button
               variant="outline"

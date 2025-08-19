@@ -19,7 +19,6 @@ const Index = () => {
       <AdmissionSection />
       <GallerySection />
       <ContactSection />
-      <BlogsSection />
       <CareersSection />
 
       {/* Footer */}

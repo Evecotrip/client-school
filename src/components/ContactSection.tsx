@@ -10,24 +10,22 @@ const ContactSection = () => {
       icon: MapPin,
       title: "Address",
       details:
-        "123 Education Boulevard\nLearning District, ED 12345\nUnited States",
+        "Road No. 1, Kanaka Durga Colony, Karwan, Hyderabad, Telangana 500006",
     },
     {
       icon: Phone,
       title: "Phone",
-      details: "+1 (555) 123-4567\n+1 (555) 123-4568",
+      details: "095812 19373",
     },
     {
       icon: Mail,
       title: "Email",
-      details:
-        "info@alimraninstitutions.edu\nadmissions@alimraninstitutions.edu",
+      details: "Info@alimrantaiba.com\nSales@alimrantaiba.com",
     },
     {
       icon: Clock,
       title: "Office Hours",
-      details:
-        "Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSunday: Closed",
+      details: "Mon - Sat: 9:00 AM - 8:00 PM",
     },
   ];
 
@@ -73,15 +71,18 @@ const ContactSection = () => {
               ))}
             </div>
 
-            {/* Map placeholder */}
-            <div className="bg-gradient-subtle rounded-xl h-64 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-                <p className="text-muted-foreground">Interactive Map</p>
-                <p className="text-sm text-muted-foreground">
-                  Find us on the map
-                </p>
-              </div>
+            {/* Google Maps */}
+            <div className="bg-gradient-subtle rounded-xl overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.700200181559!2d78.42909647591034!3d17.37815330306961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97f73f82120b%3A0x43aa8bbebc517d8e!2sJJ%20High%20School(Al-%20IMRAN)!5e0!3m2!1sen!2sin!4v1755619391922!5m2!1sen!2sin"
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="JJ High School Location"
+              />
             </div>
           </div>
 
