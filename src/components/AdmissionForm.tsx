@@ -27,6 +27,7 @@ import {
   MapPin,
   GraduationCap,
 } from "lucide-react";
+import { postAdmissionForm } from "@/api/api";
 
 interface AdmissionFormProps {
   children: React.ReactNode;
@@ -54,29 +55,35 @@ const AdmissionForm = ({ children, course }: AdmissionFormProps) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Admission form submitted:", formData);
-    setIsSubmitted(true);
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        studentName: "",
-        email: "",
-        phone: "",
-        dateOfBirth: "",
-        gender: "",
-        address: "",
-        guardianName: "",
-        guardianPhone: "",
-        previousSchool: "",
-        grade: course || "",
-        message: "",
-      });
-    }, 3000);
+    const data = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      data.append(key, value);
+    });
+    try {
+      await postAdmissionForm(data);
+      setIsSubmitted(true);
+      // Reset form after 2 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          studentName: "",
+          email: "",
+          phone: "",
+          dateOfBirth: "",
+          gender: "",
+          address: "",
+          guardianName: "",
+          guardianPhone: "",
+          previousSchool: "",
+          grade: course || "",
+          message: "",
+        });
+      }, 2000);
+    } catch (error) {
+      alert("Failed to submit admission form. Please try again later.");
+    }
   };
 
   return (

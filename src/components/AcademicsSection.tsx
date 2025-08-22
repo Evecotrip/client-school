@@ -46,8 +46,8 @@ const AcademicsSection = () => {
     },
     {
       icon: Music,
-      name: "Music & Drama",
-      description: "Orchestra, choir, and theater",
+      name: "Sports",
+      description: "Team games, athletics, and physical education",
     },
     {
       icon: Globe,

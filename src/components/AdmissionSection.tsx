@@ -66,9 +66,6 @@ const AdmissionSection = () => {
                   <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto">
                     <step.icon className="h-8 w-8 text-primary-foreground" />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-accent rounded-full flex items-center justify-center text-accent-foreground font-bold text-sm">
-                    {index + 1}
-                  </div>
                 </div>
 
                 <h3 className="text-xl font-heading font-bold text-foreground mb-4">
@@ -102,63 +99,6 @@ const AdmissionSection = () => {
             <AdmissionForm>
               <Button className="btn-hero">Apply for Admission</Button>
             </AdmissionForm>
-          </div>
-
-          {/* Important Dates */}
-          <div>
-            <h3 className="text-3xl font-heading font-bold text-foreground mb-8">
-              Important Dates
-            </h3>
-
-            <div className="space-y-6">
-              <div className="bg-card border border-border rounded-xl p-6">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="font-semibold text-foreground">
-                    Application Opens
-                  </span>
-                  <span className="text-primary font-bold">January 15</span>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Online applications become available
-                </p>
-              </div>
-
-              <div className="bg-card border border-border rounded-xl p-6">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="font-semibold text-foreground">
-                    Application Deadline
-                  </span>
-                  <span className="text-accent font-bold">March 30</span>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Last date to submit complete applications
-                </p>
-              </div>
-
-              <div className="bg-card border border-border rounded-xl p-6">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="font-semibold text-foreground">
-                    Entrance Assessment
-                  </span>
-                  <span className="text-secondary font-bold">April 15-30</span>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Assessment and interview period
-                </p>
-              </div>
-
-              <div className="bg-card border border-border rounded-xl p-6">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="font-semibold text-foreground">
-                    Results Announcement
-                  </span>
-                  <span className="text-primary font-bold">May 15</span>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Admission results and enrollment information
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

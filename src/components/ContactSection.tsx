@@ -1,8 +1,145 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { postQuery } from "@/api/api";
+const ContactForm = () => {
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError("");
+    try {
+      await postQuery(form);
+      setSuccess(true);
+      setForm({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+      setTimeout(() => setSuccess(false), 3000);
+    } catch (err) {
+      setError("Failed to send message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <form className="space-y-6" onSubmit={handleSubmit}>
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-medium text-foreground mb-2">
+            First Name
+          </label>
+          <Input
+            name="firstName"
+            value={form.firstName}
+            onChange={handleChange}
+            placeholder="Enter your first name"
+            required
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-foreground mb-2">
+            Last Name
+          </label>
+          <Input
+            name="lastName"
+            value={form.lastName}
+            onChange={handleChange}
+            placeholder="Enter your last name"
+            required
+          />
+        </div>
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-foreground mb-2">
+          Email Address
+        </label>
+        <Input
+          name="email"
+          type="email"
+          value={form.email}
+          onChange={handleChange}
+          placeholder="Enter your email address"
+          required
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-foreground mb-2">
+          Phone Number
+        </label>
+        <Input
+          name="phone"
+          type="tel"
+          value={form.phone}
+          onChange={handleChange}
+          placeholder="Enter your phone number"
+          required
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-foreground mb-2">
+          Subject
+        </label>
+        <Input
+          name="subject"
+          value={form.subject}
+          onChange={handleChange}
+          placeholder="What is this regarding?"
+          required
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-foreground mb-2">
+          Message
+        </label>
+        <Textarea
+          name="message"
+          value={form.message}
+          onChange={handleChange}
+          placeholder="Tell us more about your inquiry..."
+          className="min-h-[120px]"
+          required
+        />
+      </div>
+      {success && (
+        <div className="text-green-600 text-center font-medium">
+          Message sent successfully!
+        </div>
+      )}
+      {error && (
+        <div className="text-red-600 text-center font-medium">{error}</div>
+      )}
+      <Button className="btn-hero w-full" type="submit" disabled={isSubmitting}>
+        {isSubmitting ? "Sending..." : "Send Message"}
+      </Button>
+    </form>
+  );
+};
 
 const ContactSection = () => {
   const contactInfo = [
@@ -20,7 +157,7 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: "Email",
-      details: "Info@alimrantaiba.com\nSales@alimrantaiba.com",
+      details: "info@jjhighschool.com\ncontact@jjhighschool.com",
     },
     {
       icon: Clock,
@@ -92,55 +229,7 @@ const ContactSection = () => {
               Send us a Message
             </h3>
 
-            <form className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    First Name
-                  </label>
-                  <Input placeholder="Enter your first name" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Last Name
-                  </label>
-                  <Input placeholder="Enter your last name" />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Email Address
-                </label>
-                <Input type="email" placeholder="Enter your email address" />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Phone Number
-                </label>
-                <Input type="tel" placeholder="Enter your phone number" />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Subject
-                </label>
-                <Input placeholder="What is this regarding?" />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Message
-                </label>
-                <Textarea
-                  placeholder="Tell us more about your inquiry..."
-                  className="min-h-[120px]"
-                />
-              </div>
-
-              <Button className="btn-hero w-full">Send Message</Button>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </div>

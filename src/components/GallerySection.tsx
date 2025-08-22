@@ -7,6 +7,16 @@ import Image3 from "@/assets/3.jpeg";
 import Image4 from "@/assets/4.jpeg";
 import Image5 from "@/assets/5.jpeg";
 import Image6 from "@/assets/6.jpeg";
+import Image7 from "@/assets/7.jpeg";
+import Image8 from "@/assets/8.jpeg";
+import Image9 from "@/assets/9.jpeg";
+import Image10 from "@/assets/10.jpeg";
+import Image11 from "@/assets/11.jpeg";
+import Image12 from "@/assets/12.jpeg";
+import Image13 from "@/assets/13.jpeg";
+import Image14 from "@/assets/14.jpeg";
+import Image15 from "@/assets/15.jpeg";
+import Image16 from "@/assets/16.jpeg";
 
 const GallerySection = () => {
   // Gallery images with imported assets
@@ -46,6 +56,66 @@ const GallerySection = () => {
       id: 6,
       title: "Classroom",
       description: "Interactive learning environment",
+    },
+    {
+      src: Image7,
+      id: 7,
+      title: "Laboratory",
+      description: "Hands-on science experiments",
+    },
+    {
+      src: Image8,
+      id: 8,
+      title: "Library",
+      description: "A world of knowledge",
+    },
+    {
+      src: Image9,
+      id: 9,
+      title: "Art Class",
+      description: "Creative expression in action",
+    },
+    {
+      src: Image10,
+      id: 10,
+      title: "Music Class",
+      description: "Students making music",
+    },
+    {
+      src: Image11,
+      id: 11,
+      title: "Outdoor Activity",
+      description: "Learning beyond the classroom",
+    },
+    {
+      src: Image12,
+      id: 12,
+      title: "Cafeteria",
+      description: "Healthy and delicious meals",
+    },
+    {
+      src: Image13,
+      id: 13,
+      title: "School Assembly",
+      description: "Gathering for important announcements",
+    },
+    {
+      src: Image14,
+      id: 14,
+      title: "Playground",
+      description: "Fun and games during recess",
+    },
+    {
+      src: Image15,
+      id: 15,
+      title: "Graduation Day",
+      description: "Celebrating student achievements",
+    },
+    {
+      src: Image16,
+      id: 16,
+      title: "Campus View 3",
+      description: "Another beautiful angle of our campus",
     },
   ];
 

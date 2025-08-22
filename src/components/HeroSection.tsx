@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/school-hero.jpg";
+import heroImage2 from "@/assets/jjLanding.jpeg";
 import AdmissionForm from "@/components/AdmissionForm";
 
 const HeroSection = () => {
@@ -12,7 +13,7 @@ const HeroSection = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
-          src={heroImage}
+          src={heroImage2}
           alt={'Al Imran Group of Institutions "JJ High School" Campus'}
           className="w-full h-full object-cover"
         />

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import LogoImage from "@/assets/left-header-logo.jpg"; // Assuming you have a logo image
+import AdmissionForm from "@/components/AdmissionForm";
 
 const FloatingNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -74,12 +75,9 @@ const FloatingNavbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button
-              onClick={() => scrollToSection("admission")}
-              className="btn-hero"
-            >
-              Apply Now
-            </Button>
+            <AdmissionForm>
+              <Button className="btn-hero">Apply Now</Button>
+            </AdmissionForm>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -108,12 +106,9 @@ const FloatingNavbar = () => {
                 {item}
               </Button>
             ))}
-            <Button
-              onClick={() => scrollToSection("admission")}
-              className="btn-hero text-lg mt-8"
-            >
-              Apply Now
-            </Button>
+            <AdmissionForm>
+              <Button className="btn-hero text-lg mt-8">Apply Now</Button>
+            </AdmissionForm>
           </div>
         </div>
       )}
