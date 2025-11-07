@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { ConvexProvider, ConvexReactClient } from "convex/react";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const queryClient = new QueryClient();
 // Initialize Convex client
@@ -19,6 +20,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <FloatingWhatsApp />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
