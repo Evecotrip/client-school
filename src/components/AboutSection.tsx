@@ -30,7 +30,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="know-us" className="section-padding bg-gradient-subtle">
+    <section id="about-us" className="section-padding bg-gradient-subtle">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
